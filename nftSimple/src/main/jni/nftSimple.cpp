@@ -1005,6 +1005,8 @@ void drawCube(float size, float x, float y, float z)
 
    }
  */
+
+
 void drawPainting()
 {
 
@@ -1019,7 +1021,7 @@ void drawPainting()
     };
 
     //Create texture array
-    GLuint texture1=GL_TEXTURE0+5;
+    GLuint texture1=GL_TEXTURE0+100;
     //glStateCacheActiveTexture(texture1);
     glActiveTexture(texture1);
 
@@ -1049,8 +1051,12 @@ void drawPainting()
     glDisable(GL_TEXTURE_2D);
     glPopMatrix();    // Restore world
     //glActiveTexture(GL_TEXTURE1);
+
+    //glActiveTexture(GL_TEXTURE0 + 1);
+    //glEnable(GL_TEXTURE_2D);
 }
 
+/*
 void drawPainting2()
 {
 
@@ -1094,7 +1100,7 @@ void drawPainting2()
     glPopMatrix();
     glMatrixMode(GL_MODELVIEW);
 }
-
+*/
 JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject obj))
 {
     float width, height;
@@ -1124,7 +1130,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
     //arglDrawModeSet(0);
     // Display the current frame
     //gArglSettings->format = AR_PIXEL_FORMAT_RGB;
-    //arglPixelFormatSet(gArglSettings, AR_PIXEL_FORMAT_RGBA);
+    //arglPixelFormatSet(gArglSettings, AR_PIXEL_FORMAT_2vuy);
     arglDispImage(gArglSettings);
 
     // Set up 3D mode.
@@ -1150,8 +1156,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
             drawPainting();
         }
     }
-
-    glActiveTexture(GL_TEXTURE0 + 1);
+    glActiveTexture(GL_TEXTURE1);
     glEnable(GL_TEXTURE_2D);
 
     if (cameraPoseValid) {
@@ -1181,7 +1186,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
 
     // If you added external OpenGL code above, and that code doesn't use the glStateCache routines,
     // then uncomment the line below.
-    //glStateCacheFlush();
+    glStateCacheFlush();
 
 #ifdef DEBUG
     // Example of 2D drawing. It just draws a white border line. Change the 0 to 1 to enable.
