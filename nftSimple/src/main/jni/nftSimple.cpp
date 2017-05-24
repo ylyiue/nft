@@ -69,8 +69,8 @@
 
 #include "ARMarkerNFT.h"
 #include "trackingSub.h"
-#include "test.c"
-//#include "pic.c"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 // ============================================================================
 //	Types
@@ -219,6 +219,9 @@ static int gInternetState = -1;
 // TXT FOR POSITION LOG
 static FILE* posFile;
 
+// Image
+int img_width,img_height,img_channels;
+unsigned char *img_data;
 
 // ============================================================================
 //	Functions
@@ -248,6 +251,10 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeCreate(JNIEnv* env, jobject 
 #ifdef DEBUG
     LOGE("Marker count = %d\n", markersNFTCount);
 #endif
+
+    img_data = stbi_load("Data/13.jpg", &img_width, &img_height, &img_channels, 0);
+    if (img_data == NULL)
+        LOGE("LOAD IMAGE FAIL (stbi_load)\n");
 
     return (true);
 }
@@ -344,6 +351,8 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeDestroy(JNIEnv* env, jobject
     LOGI("nativeDestroy\n");
 #endif
     if (markersNFT) deleteMarkers(&markersNFT, &markersNFTCount);
+
+    stbi_image_free(img_data);
 
     return (true);
 }
@@ -1029,8 +1038,8 @@ void drawPainting()
 
     // enable texturing. If you don't do this, you won't get any image displayed
     glPushMatrix(); // Save world coordinate system.
-    glScalef(gimp_image.width * 0.2, gimp_image.height * 0.2, 40);
-    glTranslatef(0, 0, 0);
+    glTranslatef(70, 100, 0);
+    glScalef(img_width * 0.12, img_height * 0.12, 40);
     glScalef(1, -1, 1);
     glStateCacheDisableLighting();
     glStateCacheVertexPtr(3, GL_FLOAT, 0, cube_vertices);
@@ -1038,7 +1047,10 @@ void drawPainting()
     glStateCacheTexCoordPtr(2, GL_FLOAT, 0, texCoords);
 
     glBindTexture(GL_TEXTURE_2D, texture1);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, gimp_image.width, gimp_image.height, 0, GL_RGB, GL_UNSIGNED_BYTE, gimp_image.pixel_data);
+    if (img_channels == 3)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width, img_height, 0, GL_RGB, GL_UNSIGNED_BYTE, img_data);
+    else
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_width, img_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, img_data);
 
     //Set active texture
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
