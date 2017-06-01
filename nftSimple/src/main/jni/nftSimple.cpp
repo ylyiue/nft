@@ -220,8 +220,12 @@ static int gInternetState = -1;
 static FILE* posFile;
 
 // Image
-int img_width,img_height,img_channels;
-unsigned char *img_data;
+int img_width[10], img_height[10], img_channels[10], text_width[10], text_height[10], text_channels[10];
+unsigned char *img_data[10], *text_data[10];
+int transVal[10][2] , scaleVal[10];
+bool isVertical = true;
+
+
 
 // ============================================================================
 //	Functions
@@ -252,9 +256,17 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeCreate(JNIEnv* env, jobject 
     LOGE("Marker count = %d\n", markersNFTCount);
 #endif
 
-    img_data = stbi_load("Data/13.jpg", &img_width, &img_height, &img_channels, 0);
-    if (img_data == NULL)
-        LOGE("LOAD IMAGE FAIL (stbi_load)\n");
+    for (int i = 0; i < markersNFTCount; i++) {
+    char imgFilename[20], textFilename[20];
+    sprintf (imgFilename, "Data/%d.jpg", i);
+    sprintf (textFilename, "Data/%dt.jpg", i);
+    img_data[i] = stbi_load(imgFilename, &img_width[i], &img_height[i], &img_channels[i], 0);
+    if (img_data[i] == NULL)
+        LOGE("Load image %d fail (stbi_load)\n", i);
+    text_data[i] = stbi_load(textFilename, &text_width[i], &text_height[i], &text_channels[i], 0);
+    if (text_data[i] == NULL)
+        LOGE("Load text %d fail (stbi_load)\n", i);
+    }
 
     return (true);
 }
@@ -672,7 +684,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
                 detectedPage = -2;
             } else {
 #ifdef DEBUG
-                LOGE("Tracked page %d (max %d).\n", detectedPage, surfaceSetCount - 1);
+                LOGD("Tracked page %d (max %d).\n", detectedPage, surfaceSetCount - 1);
 #endif
             }
         }
@@ -715,6 +727,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
             if (posFile != NULL) {
                 fprintf(posFile, "position(x,y,z) = %f %f %f\n", markersNFT[i].pose.T[12], markersNFT[i].pose.T[13], markersNFT[i].pose.T[14]);
                 fflush(posFile);
+                isVertical = (markersNFT[i].pose.T[12] * markersNFT[i].pose.T[13] < 0)? true : false;
             }
             // Tell any dependent objects about the update.
             //ARMarkerUpdatedPoseNotification
@@ -917,106 +930,7 @@ static bool initARView(void)
     return (true);
 }
 
-void drawCube(float size, float x, float y, float z)
-{
-    // Colour cube data.
-
-    int i;
-    const GLfloat cube_vertices [8][3] = {
-        /* +z */ {0.5f, 0.5f, 0.5f}, {0.5f, -0.5f, 0.5f}, {-0.5f, -0.5f, 0.5f}, {-0.5f, 0.5f, 0.5f},
-        /* -z */ {0.5f, 0.5f, -0.5f}, {0.5f, -0.5f, -0.5f}, {-0.5f, -0.5f, -0.5f}, {-0.5f, 0.5f, -0.5f}
-    };
-    const GLubyte cube_vertex_colors [8][4] = {
-        {255, 255, 255, 255}, {255, 255, 0, 255}, {0, 255, 0, 255}, {0, 255, 255, 255},
-        {255, 0, 255, 255}, {255, 0, 0, 255}, {0, 0, 0, 255}, {0, 0, 255, 255}
-    };
-    const GLushort cube_faces [6][4] = { /* ccw-winding */
-        /* +z */ {3, 2, 1, 0}, /* -y */ {2, 3, 7, 6}, /* +y */ {0, 1, 5, 4},
-        /* -x */ {3, 0, 4, 7}, /* +x */ {1, 2, 6, 5}, /* -z */ {4, 5, 6, 7}
-    };
-
-    glPushMatrix(); // Save world coordinate system.
-    glTranslatef(x, y, z);
-    glScalef(size, size, size);
-    glStateCacheDisableLighting();
-    glStateCacheDisableTex2D();
-    glStateCacheDisableBlend();
-    glColorPointer(4, GL_UNSIGNED_BYTE, 0, cube_vertex_colors);
-    glVertexPointer(3, GL_FLOAT, 0, cube_vertices);
-    glStateCacheEnableClientStateVertexArray();
-    glEnableClientState(GL_COLOR_ARRAY);
-    for (i = 0; i < 1; i++) {
-        glDrawElements(GL_TRIANGLE_FAN, 4, GL_UNSIGNED_SHORT, &(cube_faces[i][0]));
-    }
-    glDisableClientState(GL_COLOR_ARRAY);
-    glColor4ub(0, 0, 0, 255);
-    for (i = 0; i < 1; i++) {
-        glDrawElements(GL_LINE_LOOP, 4, GL_UNSIGNED_SHORT, &(cube_faces[i][0]));
-    }
-    glPopMatrix();    // Restore world coordinate system.
-}
-/*
-   void drawPainting1()
-   {
-
-    const GLfloat cube_vertices [4][3] = {
-        {-1.0f, 1.0f, -1.0f}, {1.0f, 1.0f, -1.0f}, {-1.0f, -1.0f, -1.0f}, {1.0f, -1.0f, -1.0f} };
-    const GLfloat texCoords [4][2] = {
-        {0.0, 1.0}, {1.0, 1.0}, {0.0, 0.0}, {1.0, 0.0} };
-    const GLfloat normals [4][3] = {
-        {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0} };
-
-    //Create texture array
-    GLuint texture1= 150;
-    glGenTextures(1, &texture1);
-    //Set active texture
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-
-    // load the image into memory. Replace gimp_image with whatever the array is called in the .c file
-    //gluBuild2DMipmaps(GL_TEXTURE_2D, gimp_image.bytes_per_pixel, gimp_image.width, gimp_image.height, GL_RGBA, GL_UNSIGNED_BYTE, gimp_image.pixel_data);
-    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, gimp_image.width, gimp_image.height, 0, GL_RGB, GL_UNSIGNED_BYTE, gimp_image.pixel_data );
-
-    //gluBuild2DMipmaps( GL_TEXTURE_2D, 3, width,   height, GL_RGB, GL_UNSIGNED_BYTE, data );
-    //glTexImage2D( GL_TEXTURE_2D,0, GL_RGB, width,   height,0, GL_RGB, GL_UNSIGNED_BYTE, data );
-
-    // enable texturing. If you don't do this, you won't get any image displayed
-    glEnable(GL_TEXTURE_2D);
-    glPushMatrix(); // Save world coordinate system.
-    glScalef(gimp_image.width * 0.2, gimp_image.height * 0.2, 40);
-    //glScalef(0.2,  0.2, 40);
-    glTranslatef(0, 0, 0);
-    glScalef(1, -1, 1);
-    glStateCacheDisableLighting();
-    glStateCacheVertexPtr(3, GL_FLOAT, 0, cube_vertices);
-    glStateCacheNormalPtr(GL_FLOAT, 0, normals);
-    glStateCacheTexCoordPtr(2, GL_FLOAT, 0, texCoords);
-
-    glStateCacheEnableTex2D();
-    glStateCacheEnableBlend();
-    glStateCacheBlendFunc(GL_ONE, GL_ONE);
-    glStateCacheEnableClientStateVertexArray();
-    glStateCacheEnableClientStateTexCoordArray();
-    glStateCacheEnableClientStateNormalArray();
-
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
-    glStateCacheDisableClientStateNormalArray();
-    glStateCacheDisableClientStateTexCoordArray();
-    glStateCacheDisableClientStateVertexArray();
-
-    glDeleteTextures(1, &texture1);
-    glDisable(GL_TEXTURE_2D);
-   // glEnable(GL_TEXTURE_2D);
-
-    glPopMatrix();    // Restore world
-
-   }
- */
-
-
-void drawPainting()
+void drawPainting(int i)
 {
 
     const GLfloat cube_vertices [4][3] = {
@@ -1039,7 +953,7 @@ void drawPainting()
     // enable texturing. If you don't do this, you won't get any image displayed
     glPushMatrix(); // Save world coordinate system.
     glTranslatef(70, 100, 0);
-    glScalef(img_width * 0.12, img_height * 0.12, 40);
+    glScalef(img_width[i] * 0.12, img_height[i] * 0.12, 40);
     glScalef(1, -1, 1);
     glStateCacheDisableLighting();
     glStateCacheVertexPtr(3, GL_FLOAT, 0, cube_vertices);
@@ -1047,10 +961,22 @@ void drawPainting()
     glStateCacheTexCoordPtr(2, GL_FLOAT, 0, texCoords);
 
     glBindTexture(GL_TEXTURE_2D, texture1);
-    if (img_channels == 3)
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width, img_height, 0, GL_RGB, GL_UNSIGNED_BYTE, img_data);
-    else
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_width, img_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, img_data);
+    if (img_channels[i] == 3) {
+        if (isVertical) {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width[i], img_height[i], 0, GL_RGB, GL_UNSIGNED_BYTE, img_data[i]);
+        }
+        else {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width[i], img_height[i], 0, GL_RGB, GL_UNSIGNED_BYTE, text_data[i]);
+        }
+    }
+    else {
+        if (isVertical) {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_width[i], img_height[i], 0, GL_RGBA, GL_UNSIGNED_BYTE, img_data[i]);
+        }
+        else {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_width[i], img_height[i], 0, GL_RGBA, GL_UNSIGNED_BYTE, text_data[i]);
+        }
+    }
 
     //Set active texture
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
@@ -1068,51 +994,6 @@ void drawPainting()
     //glEnable(GL_TEXTURE_2D);
 }
 
-/*
-void drawPainting2()
-{
-
-    GLfloat w = gimp_image.width * 0.2, h = gimp_image.height * 0.2;
-    GLfloat vertices[4][2] = { {0.0f, 0.0f}, {w, 0.0f}, {w, h}, {0.0f, h} };
-    GLfloat normals[4][3] = { {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f, 1.0f} };
-    GLfloat texcoords[4][2] = { {0.0f, 0.0f},  {1.0f, 0.0f},  {1.0f, 1.0f},  {0.0f, 1.0f} };
-
-    GLuint texture1 = 150;
-
-
-    glStateCacheActiveTexture(GL_TEXTURE0);
-
-    glMatrixMode(GL_TEXTURE);
-    glPushMatrix();
-    //glLoadMatrixf(movieTextureMtxUnpacked);
-    glMatrixMode(GL_MODELVIEW);
-
-    glVertexPointer(2, GL_FLOAT, 0, vertices);
-    glNormalPointer(GL_FLOAT, 0, normals);
-    glStateCacheClientActiveTexture(GL_TEXTURE0);
-    glTexCoordPointer(2, GL_FLOAT, 0, texcoords);
-    glStateCacheEnableClientStateVertexArray();
-    glStateCacheEnableClientStateNormalArray();
-    glStateCacheEnableClientStateTexCoordArray();
-    glStateCacheBindTexture2D(0);
-    glStateCacheDisableTex2D();
-    glStateCacheDisableLighting();
-
-    glEnable(GL_TEXTURE_2D);
-    glGenTextures(1, &texture1);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, gimp_image.width, gimp_image.height, 0, GL_RGB, GL_UNSIGNED_BYTE, gimp_image.pixel_data);
-
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-
-    //glBindTexture(GL_TEXTURE_2D, 0);
-    glDisable(GL_TEXTURE_2D);
-
-    glMatrixMode(GL_TEXTURE);
-    glPopMatrix();
-    glMatrixMode(GL_MODELVIEW);
-}
-*/
 JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject obj))
 {
     float width, height;
@@ -1160,12 +1041,11 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
     // --->
 
     // Draw an object on all valid markers.
-
     for (int i = 0; i < markersNFTCount; i++) {
         if (markersNFT[i].valid) {
             glLoadMatrixf(markersNFT[i].pose.T);
             //drawCube(30.0f, markersNFT[i].marker_width, markersNFT[i].marker_height, 0.0f);
-            drawPainting();
+            drawPainting(i);
         }
     }
     glActiveTexture(GL_TEXTURE1);
