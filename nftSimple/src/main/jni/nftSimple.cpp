@@ -222,8 +222,10 @@ static FILE* posFile;
 // Image
 int img_width[10], img_height[10], img_channels[10], text_width[10], text_height[10], text_channels[10];
 unsigned char *img_data[10], *text_data[10];
-int transVal[10][2] , scaleVal[10];
-bool isVertical = true;
+int transVal[10][2] = {{0,0}, {70,80}, {90,70}};
+float scaleVal[10] = {1, 0.12, 0.09};
+bool isVertical = true, isVerticalPrev = true;
+int pagePrev = -1;
 
 
 
@@ -294,7 +296,9 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeStart(JNIEnv* env, jobject o
 
     // TXT FOR POSITION LOG
     //posFile = fopen("/sdcard/position.txt","w+");
-    posFile = fopen("/sdcard/position.txt","w+");
+    char posFilename [50];
+    sprintf (posFilename, "/sdcard/position_%d.txt", rand());
+    posFile = fopen(posFilename,"w+");
 
     return (true);
 }
@@ -605,14 +609,14 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
 
     if (!videoInited) {
 #ifdef DEBUG
-        //LOGD("nativeVideoFrame !VIDEO\n");
+        LOGD("nativeVideoFrame !VIDEO\n");
 #endif
         return; // No point in trying to track until video is inited.
     }
     if (!nftDataLoaded) {
         if (!nftDataLoadingThreadHandle || threadGetStatus(nftDataLoadingThreadHandle) < 1) {
 #ifdef DEBUG
-            //LOGD("nativeVideoFrame !NFTDATA\n");
+            LOGD("nativeVideoFrame !NFTDATA\n");
 #endif
             return;
         } else {
@@ -624,11 +628,11 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
     if (!gARViewInited) {
         return; // Also, we won't track until the ARView has been inited.
 #ifdef DEBUG
-        //LOGD("nativeVideoFrame !ARVIEW\n");
+        LOGD("nativeVideoFrame !ARVIEW\n");
 #endif
     }
 #ifdef DEBUG
-    //LOGD("nativeVideoFrame\n");
+    LOGD("nativeVideoFrame\n");
 #endif
 
     // Copy the incoming  YUV420 image in pinArray.
@@ -668,7 +672,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
                 }
             } else if( ret < 0 ) {
 #ifdef DEBUG
-                //LOGE("No page detected.\n");
+                LOGE("No page detected.\n");
 #endif
                 detectedPage = -2;
             }
@@ -698,11 +702,9 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
         markersNFT[i].validPrev = markersNFT[i].valid;
         if (markersNFT[i].pageNo >= 0 && markersNFT[i].pageNo == detectedPage) {
             markersNFT[i].valid = TRUE;
-            for (j = 0; j < 3; j++) for (k = 0; k < 4; k++)
-                {
+            for (j = 0; j < 3; j++) for (k = 0; k < 4; k++) {
                     markersNFT[i].trans[j][k] = trackingTrans[j][k];
-                    //LOGE("trackingTrans=%f\n", trackingTrans[j][k]);
-                }
+            }
         }
         else markersNFT[i].valid = FALSE;
         if (markersNFT[i].valid) {
@@ -727,7 +729,18 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
             if (posFile != NULL) {
                 fprintf(posFile, "position(x,y,z) = %f %f %f\n", markersNFT[i].pose.T[12], markersNFT[i].pose.T[13], markersNFT[i].pose.T[14]);
                 fflush(posFile);
+
                 isVertical = (markersNFT[i].pose.T[12] * markersNFT[i].pose.T[13] < 0)? true : false;
+                if (isVertical != isVerticalPrev) {
+                    char stat[20];
+                    if (isVertical)
+                        sprintf(stat, "to vertival");
+                    else
+                        sprintf(stat, "to horizontal");
+                    fprintf(posFile, "%s\n", stat);
+                    fflush(posFile);
+                    isVerticalPrev = isVertical;
+                }
             }
             // Tell any dependent objects about the update.
             //ARMarkerUpdatedPoseNotification
@@ -952,8 +965,8 @@ void drawPainting(int i)
 
     // enable texturing. If you don't do this, you won't get any image displayed
     glPushMatrix(); // Save world coordinate system.
-    glTranslatef(70, 100, 0);
-    glScalef(img_width[i] * 0.12, img_height[i] * 0.12, 40);
+    glTranslatef(transVal[i][0], transVal[i][1], 0);
+    glScalef(img_width[i] * scaleVal[i], img_height[i] * scaleVal[i], 40);
     glScalef(1, -1, 1);
     glStateCacheDisableLighting();
     glStateCacheVertexPtr(3, GL_FLOAT, 0, cube_vertices);
@@ -1000,12 +1013,12 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
 
     if (!videoInited) {
 #ifdef DEBUG
-//        LOGI("nativeDrawFrame !VIDEO\n");
+        LOGI("nativeDrawFrame !VIDEO\n");
 #endif
         return; // No point in trying to draw until video is inited.
     }
 #ifdef DEBUG
-//    LOGI("nativeDrawFrame\n");
+    LOGI("nativeDrawFrame\n");
 #endif
     if (!gARViewInited) {
         if (!initARView()) return;
@@ -1046,6 +1059,11 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
             glLoadMatrixf(markersNFT[i].pose.T);
             //drawCube(30.0f, markersNFT[i].marker_width, markersNFT[i].marker_height, 0.0f);
             drawPainting(i);
+            if (i != pagePrev) {
+                fprintf(posFile, "Look at marker %d\n", i);
+                fflush(posFile);
+                pagePrev = i;
+            }
         }
     }
     glActiveTexture(GL_TEXTURE1);
