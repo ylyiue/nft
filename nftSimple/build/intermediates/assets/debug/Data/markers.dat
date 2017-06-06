@@ -1,5 +1,5 @@
 # Number of markers
-10
+11
 
 # Entries for each marker. Format is:
 #
@@ -51,5 +51,9 @@ NFT
 FILTER 15.0
 
 ../DataNFT/9
+NFT
+FILTER 15.0
+
+../DataNFT/10
 NFT
 FILTER 15.0

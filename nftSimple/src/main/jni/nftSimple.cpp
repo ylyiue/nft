@@ -66,6 +66,7 @@
 #include <AR/gsub_es.h>
 #include <AR/arFilterTransMat.h>
 #include <AR2/tracking.h>
+#include <time.h>
 
 #include "ARMarkerNFT.h"
 #include "trackingSub.h"
@@ -220,10 +221,11 @@ static int gInternetState = -1;
 static FILE* posFile;
 
 // Image
-int img_width[10], img_height[10], img_channels[10], text_width[10], text_height[10], text_channels[10];
-unsigned char *img_data[10], *text_data[10];
-int transVal[10][2] = {{55,65}, {70,80}, {90,70}};
-float scaleVal[10] = {0.075, 0.12, 0.09};
+int img_width[20], img_height[20], img_channels[20], text_width[20], text_height[20], text_channels[20];
+unsigned char *img_data[20], *text_data[20];
+int transVal[20][2] = {{40,50}, {70,80}, {90,70}, {40,60}, {40,70},
+                       {30,60}, {50,30}, {50,30}, {50,30}, {40,20}, {30,30}};
+float scaleVal[20] = {0.06, 0.12, 0.09, 0.07, 0.1, 0.08, 0.1, 0.1, 0.12, 0.13};
 bool isVertical = true, isVerticalPrev = true;
 int pagePrev = -1;
 
