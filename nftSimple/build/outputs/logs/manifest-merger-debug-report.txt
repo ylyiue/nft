@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:3:7-51
 		INJECTED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml
@@ -64,7 +64,7 @@ ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimp
 	android:anyDensity
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:21:3-28
 application
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:23:2-40:19
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:23:2-41:19
 	android:label
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:26:6-38
 	android:debuggable
@@ -73,30 +73,32 @@ ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimp
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:28:6-32
 	android:icon
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:25:6-35
+	android:theme
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:29:3-50
 	android:name
 		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:24:6-76
 activity#org.artoolkit.ar.samples.nftSimple.nftSimpleActivity
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:30:9-37:20
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:31:9-38:20
 	android:label
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:31:19-51
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:32:19-51
 	android:configChanges
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:32:16-77
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:33:16-77
 	android:name
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:30:19-86
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:31:19-86
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:33:13-36:29
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:34:13-37:29
 action#android.intent.action.MAIN
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:34:17-69
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:35:17-69
 	android:name
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:34:25-66
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:35:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:35:17-77
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:35:27-74
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:36:27-74
 activity#org.artoolkit.ar.base.camera.CameraPreferencesActivity
-ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:39:9-100
+ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:40:9-100
 	android:name
-		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:39:19-88
+		ADDED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml:40:19-88
 uses-sdk
 INJECTED from /Users/yalan/Documents/EPFL/PRJ/AndroidProjects/nftSimpleProj/nftSimple/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [nftSimpleProj:aRBaseLib:unspecified] /Users/yalan/.android/build-cache/0bebc437086cf170e56547a453118164beeea9f6/output/AndroidManifest.xml:7:5-9:41

@@ -222,8 +222,8 @@ static FILE* posFile;
 // Image
 int img_width[10], img_height[10], img_channels[10], text_width[10], text_height[10], text_channels[10];
 unsigned char *img_data[10], *text_data[10];
-int transVal[10][2] = {{0,0}, {70,80}, {90,70}};
-float scaleVal[10] = {1, 0.12, 0.09};
+int transVal[10][2] = {{55,65}, {70,80}, {90,70}};
+float scaleVal[10] = {0.075, 0.12, 0.09};
 bool isVertical = true, isVerticalPrev = true;
 int pagePrev = -1;
 
@@ -260,8 +260,8 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeCreate(JNIEnv* env, jobject 
 
     for (int i = 0; i < markersNFTCount; i++) {
     char imgFilename[20], textFilename[20];
-    sprintf (imgFilename, "Data/%d.jpg", i);
-    sprintf (textFilename, "Data/%dt.jpg", i);
+    sprintf (imgFilename, "Data/%d.png", i);
+    sprintf (textFilename, "Data/%dt.png", i);
     img_data[i] = stbi_load(imgFilename, &img_width[i], &img_height[i], &img_channels[i], 0);
     if (img_data[i] == NULL)
         LOGE("Load image %d fail (stbi_load)\n", i);
@@ -609,14 +609,14 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
 
     if (!videoInited) {
 #ifdef DEBUG
-        LOGD("nativeVideoFrame !VIDEO\n");
+        //LOGD("nativeVideoFrame !VIDEO\n");
 #endif
         return; // No point in trying to track until video is inited.
     }
     if (!nftDataLoaded) {
         if (!nftDataLoadingThreadHandle || threadGetStatus(nftDataLoadingThreadHandle) < 1) {
 #ifdef DEBUG
-            LOGD("nativeVideoFrame !NFTDATA\n");
+            //LOGD("nativeVideoFrame !NFTDATA\n");
 #endif
             return;
         } else {
@@ -628,11 +628,11 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeVideoFrame(JNIEnv* env, jobject 
     if (!gARViewInited) {
         return; // Also, we won't track until the ARView has been inited.
 #ifdef DEBUG
-        LOGD("nativeVideoFrame !ARVIEW\n");
+        //LOGD("nativeVideoFrame !ARVIEW\n");
 #endif
     }
 #ifdef DEBUG
-    LOGD("nativeVideoFrame\n");
+    //LOGD("nativeVideoFrame\n");
 #endif
 
     // Copy the incoming  YUV420 image in pinArray.
@@ -956,6 +956,11 @@ void drawPainting(int i)
         {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}, {0.0, 0.0, 1.0}
     };
 
+
+    transVal[i][0] = (transVal[i][0] == 0)? 30 : transVal[i][0];
+    transVal[i][1] = (transVal[i][1] == 0)? 30 : transVal[i][1];
+    scaleVal[i] = (scaleVal[i] == 0)? 0.1 : scaleVal[i];
+
     //Create texture array
     GLuint texture1=GL_TEXTURE0+100;
     //glStateCacheActiveTexture(texture1);
@@ -974,6 +979,9 @@ void drawPainting(int i)
     glStateCacheTexCoordPtr(2, GL_FLOAT, 0, texCoords);
 
     glBindTexture(GL_TEXTURE_2D, texture1);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     if (img_channels[i] == 3) {
         if (isVertical) {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width[i], img_height[i], 0, GL_RGB, GL_UNSIGNED_BYTE, img_data[i]);
@@ -1013,12 +1021,12 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDrawFrame(JNIEnv* env, jobject o
 
     if (!videoInited) {
 #ifdef DEBUG
-        LOGI("nativeDrawFrame !VIDEO\n");
+        //LOGI("nativeDrawFrame !VIDEO\n");
 #endif
         return; // No point in trying to draw until video is inited.
     }
 #ifdef DEBUG
-    LOGI("nativeDrawFrame\n");
+    //LOGI("nativeDrawFrame\n");
 #endif
     if (!gARViewInited) {
         if (!initARView()) return;
