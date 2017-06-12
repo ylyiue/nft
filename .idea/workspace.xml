@@ -15,16 +15,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/1.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/1t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/1t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/2.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/2t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/2t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/3.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/3t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/3t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/4t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/4t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/5.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/5t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/5t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/6.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/0t.png" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/0t.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.fset" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.fset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.fset3" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.fset3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.iset" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/DataNFT/10.iset" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/armeabi-v7a/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/armeabi-v7a/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/armeabi/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/armeabi/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/mips/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/jniLibs/debug/mips/libnftSimpleNative.so" />
@@ -38,16 +32,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/mips/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/mips/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/x86/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/x86/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/outputs/apk/nftSimple-debug.apk" afterPath="$PROJECT_DIR$/nftSimple/build/outputs/apk/nftSimple-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/1.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/1t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/1t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/2.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/2t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/2t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/3.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/3t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/3t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/4t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/4t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/5.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/5t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/5t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/6.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/0t.png" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/0t.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/libs/armeabi-v7a/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/src/main/libs/armeabi-v7a/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/libs/armeabi/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/src/main/libs/armeabi/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/libs/mips/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/src/main/libs/mips/libnftSimpleNative.so" />
@@ -61,11 +46,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/obj/local/x86/libnftSimpleNative.so" afterPath="$PROJECT_DIR$/nftSimple/src/main/obj/local/x86/libnftSimpleNative.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/obj/local/x86/objs-debug/nftSimpleNative/nftSimple.o" afterPath="$PROJECT_DIR$/nftSimple/src/main/obj/local/x86/objs-debug/nftSimpleNative/nftSimple.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/markers.dat" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/assets/debug/Data/markers.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/nftSimple/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat" afterPath="$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/nftSimple.iml" afterPath="$PROJECT_DIR$/nftSimple/nftSimple.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp" afterPath="$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp" />
     </list>
     <ignored path="nftSimpleProj.iws" />
@@ -99,11 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nftSimple.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nftSimple.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14730">
-              <caret line="1071" column="30" selection-start-line="1071" selection-start-column="23" selection-end-line="1071" selection-end-column="30" />
+            <state relative-caret-position="30">
+              <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,8 +95,8 @@
       <file leaf-file-name="CameraSurface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/CameraSurface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
+            <state relative-caret-position="135">
+              <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -122,7 +105,7 @@
       <file leaf-file-name="nftSimpleApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/nftSimpleApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="270">
               <caret line="74" column="64" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
               <folding />
             </state>
@@ -131,22 +114,22 @@
       </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nftSimple/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
+            <state relative-caret-position="420">
               <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="markers.dat" pinned="false" current-in-tab="true">
+      <file leaf-file-name="markers.dat" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="585">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1995,8 +1978,8 @@
         <option value="$PROJECT_DIR$/nftSimple/src/main/jni/ARMarkerNFT.c" />
         <option value="$PROJECT_DIR$/nftSimple/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/nftSimpleApplication.java" />
-        <option value="$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp" />
         <option value="$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat" />
+        <option value="$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp" />
       </list>
     </option>
   </component>
@@ -2046,12 +2029,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane />
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2164,6 +2145,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2505,7 +2488,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32546374" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2513,7 +2496,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33389544" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33389544" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28209764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2611,17 +2594,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp</url>
-          <line>1033</line>
+          <line>1019</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp</url>
-          <line>976</line>
+          <line>968</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp</url>
-          <line>1048</line>
+          <line>1034</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
       </breakpoints>
@@ -2955,53 +2938,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/CameraSurface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nftSimple/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="88" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="88" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/nftSimpleApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
+        <state relative-caret-position="270">
           <caret line="74" column="64" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nftSimple/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+        <state relative-caret-position="585">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nftSimple/src/main/java/org/artoolkit/ar/samples/nftSimple/CameraSurface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nftSimple/src/main/jni/nftSimple.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14730">
-          <caret line="1071" column="30" selection-start-line="1071" selection-start-column="23" selection-end-line="1071" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nftSimple/src/main/assets/Data/markers.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
           <folding />
         </state>
       </provider>
